@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday to Best Husband In The World</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="background-hearts"></div>
+        
+        <!-- Curved Title -->
+        <div class="curved-title-container">
+            <svg viewBox="0 0 1000 300" class="curved-title" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <path id="curve" d="M 80 220 Q 500 40 920 220" />
+                    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#cc0000;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#cc0000;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#cc0000;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <text class="curved-text" font-family="Dancing Script, cursive" font-size="48" font-weight="700" fill="url(#titleGradient)">
+                    <textPath href="#curve" startOffset="50%" text-anchor="middle">
+                        Happy Birthday to Best Husband In The World
+                    </textPath>
+                </text>
+            </svg>
+        </div>
+
+        <!-- Photo Container -->
+        <div class="photo-container">
+            <div class="photo-frame">
+                <img id="husband-photo" src="placeholder-photo.jpg" alt="Best Husband" class="husband-image">
+                <div class="photo-overlay"></div>
+            </div>
+        </div>
+
+        <!-- Love Message -->
+        <div class="love-message">
+            <h2>My Dearest Love</h2>
+            <p>Every Day I Thank Allah that you were born. You are the gift of my life. The way you treat me, makes me forget all my pain and sorrows. You are my best friend, partner in crime</p>
+            <p>May all your dreams come true and you get all the happiness in the world. Happy Birthday, Truffles!</p>
+            <div class="signature">With all my love ❤️</div>
+        </div>
+
+        <!-- Floating Hearts Animation -->
+        <div class="floating-hearts">
+            <div class="heart heart1">❤️</div>
+            <div class="heart heart2">💕</div>
+            <div class="heart heart3">💖</div>
+            <div class="heart heart4">❤️</div>
+            <div class="heart heart5">💕</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,350 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(135deg, #1a0000 0%, #330000 50%, #000000 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    z-index: 1;
+}
+
+/* Background Hearts */
+.background-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.background-hearts::before,
+.background-hearts::after {
+    content: '❤️';
+    position: absolute;
+    font-size: 20px;
+    opacity: 0.1;
+    animation: floatHearts 15s infinite linear;
+}
+
+.background-hearts::before {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.background-hearts::after {
+    left: 80%;
+    animation-delay: 7s;
+}
+
+/* Curved Title */
+.curved-title-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 0 0px;
+}
+
+.curved-title {
+    width: 100%;
+    height: auto;
+    min-height: 180px;
+    max-height: 300px;
+    filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.5));
+}
+
+.curved-text {
+    text-shadow: 3px 3px 6px #000000;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    0% { filter: drop-shadow(0 0 8px #ff0000); }
+    100% { filter: drop-shadow(0 0 25px #ff0000); }
+}
+
+/* Photo Container */
+.photo-container {
+    margin: 0px 0 40px 0;
+    position: relative;
+}
+
+.photo-frame {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #cc0000, #990000, #660000);
+    padding: 8px;
+    position: relative;
+    cursor: default;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+    animation: photoFloat 4s ease-in-out infinite;
+}
+
+.photo-frame:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 0, 0, 0.6);
+}
+
+.photo-frame::before {
+    content: '';
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    z-index: 2;
+    background: rgba(0,0,0,0.7);
+    padding: 10px 20px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo-frame:hover::before {
+    opacity: 0;
+}
+
+.husband-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+}
+
+@keyframes photoFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Love Message */
+.love-message {
+    max-width: 900px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #990000;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(255, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    margin-bottom: 40px;
+    animation: messageSlideIn 1s ease-out;
+}
+
+@keyframes messageSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.love-message h2 {
+    color: #cc0000;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 600;
+    background: linear-gradient(45deg, #cc0000, #990000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.love-message p {
+    color: #ffffff;
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8em;
+    color: #cc0000;
+    font-weight: 600;
+    margin-top: 30px;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+/* Floating Hearts Animation */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    font-size: 24px;
+    animation: floatUp 8s infinite linear;
+    opacity: 0.7;
+}
+
+.heart1 {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+
+.heart2 {
+    left: 25%;
+    animation-delay: 2s;
+    animation-duration: 10s;
+}
+
+.heart3 {
+    left: 50%;
+    animation-delay: 4s;
+    animation-duration: 9s;
+}
+
+.heart4 {
+    left: 75%;
+    animation-delay: 6s;
+    animation-duration: 11s;
+}
+
+.heart5 {
+    left: 90%;
+    animation-delay: 1s;
+    animation-duration: 7s;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes floatHearts {
+    0% {
+        transform: translateY(100vh) translateX(0px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.1;
+    }
+    90% {
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(50px);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .curved-title-container {
+        padding: 0 10px;
+    }
+    
+    .curved-title {
+        min-height: 150px;
+        max-height: 220px;
+    }
+    
+    .curved-text {
+        font-size: 36px;
+    }
+    
+    .photo-frame {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .love-message {
+        padding: 30px 20px;
+        margin: 0 20px 40px 20px;
+    }
+    
+    .love-message h2 {
+        font-size: 2em;
+    }
+    
+    .love-message p {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .curved-title-container {
+        padding: 0 5px;
+    }
+    
+    .curved-title {
+        min-height: 120px;
+        max-height: 180px;
+    }
+    
+    .curved-text {
+        font-size: 28px;
+    }
+    
+    .photo-frame {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .love-message h2 {
+        font-size: 1.8em;
+    }
+    
+    .love-message p {
+        font-size: 1em;
+    }
+}
